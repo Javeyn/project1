@@ -2,10 +2,21 @@
 body {
     
     font-family: 'Dosis', sans-serif;
-    background-color: rgb(94, 82, 82);
+    /* background-color: rgb(94, 82, 82); */
+    background-image: url(assets/images/background.jpg);
+    background-size: cover ;
 
 }
 /* #cardcontent {
     margin: 100px;
     padding: 100px;
 } */
+.container {
+    opacity: 0.5;
+    
+}
+h2.ontop {
+    position: relative;
+    top: 4.7em;
+    opacity: 1;
+  }
