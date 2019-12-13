@@ -16,6 +16,7 @@
 from config import Config
 from flask import Flask, render_template, flash
 from clarifai.rest import ClarifaiApp
+from flask_materialize import Material
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
@@ -25,6 +26,7 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
 # called `app` in `main.py`.
 app = Flask(__name__)
 app.config.from_object(Config)
+Material(app)  
 clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
 
 class UrlForm(FlaskForm):
@@ -45,12 +47,13 @@ def getConcept(result_json, index):
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = UrlForm()
-    if form.validate_on_submit():
-        """flash('Image analysis requested')"""
-        result = runImage(form.url.data)
-        # result = getConcept(result, 0)
-        return render_template('index.html', message=result)
-    return render_template('index.html', form=form)
+    # if form.validate_on_submit():
+    #     """flash('Image analysis requested')"""
+    #     result = runImage(form.url.data)
+    #     # result = getConcept(result, 0)
+    #     return render_template('index.html', message=result)
+    # return render_template('index.html', form=form)
+    return render_template('index.html', form = form)
 
 
 if __name__ == '__main__':
