@@ -1,0 +1,4 @@
+Flask==1.1.1
+Flask-WTF==0.14.2
+clarifai==2.6.2
+WTForms==2.2.1
