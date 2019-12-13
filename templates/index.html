@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Paolo Torrado's Portfolio</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript">
+            if ('{{ message }}')
+            {
+            var messageToLog = '{{ message }}'
+            console.log(messageToLog);
+            }
+        </script>
+        <script type="text/javascript" src="./static/app.js"></script>
+    </head>
+    <body>   
+            <header class="topbar">
+                <div class="tbchild" id="box_name">FoodieHelper</div>
+            </header>
+            <div id="underline"></div>
+            <div class="main">
+                <div id="box-1">
+                    <h1>About Me</h1>
+                </div>
+                <div id="box-3">
+                    {% if form %}
+                    <form action="{{ url_for('index') }}" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <p>
+                            {{ form.url.label }}<br>
+                            {{ form.url(size=32) }}<br>
+                            {% for error in form.url.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                        </p>
+                    </form>
+                    {% endif %}
+                    {% if message %}
+                    <div>
+                        <p>{{ message }}</p>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        <footer class="bottombar">
+            <h3>Copyright ©</h3>
+        </footer>
+    </body>
+</html>
