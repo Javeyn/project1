@@ -1,52 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Paolo Torrado's Portfolio</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <script type="text/javascript">
-            if ('{{ message }}')
-            {
-            var messageToLog = '{{ message }}'
-            console.log(messageToLog);
-            }
-        </script>
-        <script type="text/javascript" src="./static/app.js"></script>
-    </head>
-    <body>   
-            <header class="topbar">
-                <div class="tbchild" id="box_name">FoodieHelper</div>
-            </header>
-            <div id="underline"></div>
-            <div class="main">
-                <div id="box-1">
-                    <h1>About Me</h1>
+{% extends "material/base.html" %}
+{% import "material/utils.html" as util %}
+{% import "material/wtf.html" as wtf %}
+
+{% block title %}Hello, world!{% endblock %}
+
+{% block content %}
+<div class="container">
+        <div class="row">
+                <div class="col s12 m6">
+                    hello
                 </div>
-                <div id="box-3">
-                    {% if form %}
-                    <form action="{{ url_for('index') }}" method="post" novalidate>
-                        {{ form.hidden_tag() }}
-                        <p>
-                            {{ form.url.label }}<br>
-                            {{ form.url(size=32) }}<br>
-                            {% for error in form.url.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                            {% endfor %}
-                        </p>
-                    </form>
-                    {% endif %}
-                    {% if message %}
-                    <div>
-                        <p>{{ message }}</p>
-                    </div>
-                    {% endif %}
+                <div class="col s12 m6">
                     
                 </div>
+        </div>
+</div>
+<footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Footer Content</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
             </div>
-        <footer class="bottombar">
-            <h3>Copyright ©</h3>
-        </footer>
-    </body>
-</html>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+      </footer>
+{% endblock %}
