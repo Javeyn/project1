@@ -15,7 +15,7 @@
 # [START gae_python37_app]
 from config import Config
 from flask import Flask, render_template, flash
-from clarifai.rest import ClarifaiApp
+#from clarifai.rest import ClarifaiApp
 from flask_materialize import Material
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -27,16 +27,16 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
 app = Flask(__name__)
 app.config.from_object(Config)
 Material(app)  
-clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
+#clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
 
 class UrlForm(FlaskForm):
     url = StringField('url', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
-def runImage (imageUrl):
-    model = clarifai.public_models.food_model
-    response = model.predict_by_url(url=imageUrl)
-    return response
+#def runImage (imageUrl):
+    #model = clarifai.public_models.food_model
+    #response = model.predict_by_url(url=imageUrl)
+    #return response
 
 def getConcept(result_json, index):
     """ Returns a given concept given an index"""
