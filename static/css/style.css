@@ -1,8 +1,6 @@
 body {
     background-image: url(assets/images/veg.jpg);
     background-size: cover;
-    max-width: 33%;
-    height:auto;
     display: flex;
     justify-content: center;
 }
