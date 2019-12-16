@@ -1,15 +1,34 @@
-{% extends "material/base.html" %} {% import "material/utils.html" as util %} {% import "material/wtf.html" as wtf %} {% block title %}Hello, world!{% endblock %} {% block content %}
 
+{% extends "material/base.html" %}
+{% import "material/utils.html" as util %}
+{% import "material/wtf.html" as wtf %}
 <head>
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Paolo Torrado's Portfolio</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/nutrition.css">
     <link rel="stylesheet" type="text/css" href="/static/css/flavor.css">
-
-
-
+        <script type="text/javascript">
+            if ('{{ message }}')
+            {
+            var messageToLog = '{{ message }}'
+            console.log(messageToLog);
+            }
+        </script>
+        <script type="text/javascript" src="./static/app.js"></script>
 </head>
+{% block title %}Hello, world!{% endblock %}
+
+{% block content %}
+
+
+{% extends "material/base.html" %} {% import "material/utils.html" as util %} {% import "material/wtf.html" as wtf %} {% block title %}Hello, world!{% endblock %} {% block content %}
+
+
 <div id=headertext>
     <h2>Welcome to ATE-i</h2>
 </div>>
@@ -17,9 +36,22 @@
 </div>
 <!-- <img class="logo" src="assets/images/LOGO.png" alt="logo"> -->
 </div>
+
 <div class="container">
     <div class="submitbox">
         <div class="row">
+
+                <div class="col s12 m6" id="hello">
+                    hello
+                </div>
+                <div class="col s12 m6">
+                    
+                </div>
+                <form method="POST" action="/upload" enctype="multipart/form-data">
+                  <input type="file" name="file">
+                  <input type="submit">
+              </form>
+
             <div id=imagesubmit>
                 <div class="card">
                     <div class="card-image">
@@ -33,6 +65,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <br>
