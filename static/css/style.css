@@ -1,6 +1,6 @@
 body {
-    background-color: #ffffff;
-    color: #666666;
+    background-image: url(assets/images/veg.jpg);
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
@@ -159,3 +159,17 @@ body {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+.logo {
+  /* visibility: hidden; */
+  float: left;
+  padding-left:25%;
+}
+
+.container {
+  text-align:center;
+ }
+ 
+ .submitbox {
+   display: inline-block;
+ }
