@@ -165,3 +165,11 @@ body {
   float: left;
   padding-left:25%;
 }
+
+.container {
+  text-align:center;
+ }
+ 
+ .submitbox {
+   display: inline-block;
+ }
