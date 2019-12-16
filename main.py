@@ -14,13 +14,17 @@
 
 # [START gae_python37_app]
 from config import Config
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, request
 from clarifai.rest import ClarifaiApp
 from flask_materialize import Material
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
-    Length
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
+import logging
+import os
+from google.cloud import storage
+import requests
+
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
@@ -29,6 +33,7 @@ app.config.from_object(Config)
 Material(app)  
 clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
 
+#Function for Clarifai
 class UrlForm(FlaskForm):
     url = StringField('url', validators=[DataRequired()])
     submit = SubmitField('Sign In')
@@ -40,8 +45,13 @@ def runImage (imageUrl):
 
 def getConcept(result_json, index):
     """ Returns a given concept given an index"""
-
     return  result_json['outputs'][0]["data"]['concepts'][index]['name']
+
+#Functions for Nutritionix
+def getNutrition(searchTerm):
+    payload = {'addId': app.config['NUTRITIONIX_ID'], 'appKey':app.config['NUTRITIONIX_KEY'], 'query':searchTerm}
+    r = requests.post(app.config['NUTRITIONIX_URL'], json=payload)
+    return r.text
 
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
@@ -55,6 +65,30 @@ def index():
     # return render_template('index.html', form=form)
     return render_template('index.html', form = form)
 
+@app.route('/upload', methods=['POST'])
+def upload():
+    """Process the uploaded file and upload it to Google Cloud Storage."""
+    uploaded_file = request.files.get('file')
+
+    if not uploaded_file:
+        return 'No file uploaded.', 400
+
+    # Create a Cloud Storage client.
+    gcs = storage.Client()
+
+    # Get the bucket that the file will be uploaded to.
+    bucket = gcs.get_bucket('foodie_helper_bucket_1')
+    #app.config['CLOUD_STORAGE_BUCKET']
+    # Create a new blob and upload the file's content.
+    blob = bucket.blob(uploaded_file.filename)
+
+    blob.upload_from_string(
+        uploaded_file.read(),
+        content_type=uploaded_file.content_type
+    )
+
+    # The public URL can be used to directly access the uploaded file via HTTP.
+    return blob.public_url
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App

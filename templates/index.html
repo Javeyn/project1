@@ -1,18 +1,37 @@
 {% extends "material/base.html" %}
 {% import "material/utils.html" as util %}
 {% import "material/wtf.html" as wtf %}
-
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Paolo Torrado's Portfolio</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript">
+            if ('{{ message }}')
+            {
+            var messageToLog = '{{ message }}'
+            console.log(messageToLog);
+            }
+        </script>
+        <script type="text/javascript" src="./static/app.js"></script>
+</head>
 {% block title %}Hello, world!{% endblock %}
 
 {% block content %}
+
 <div class="container">
         <div class="row">
-                <div class="col s12 m6">
+                <div class="col s12 m6" id="hello">
                     hello
                 </div>
                 <div class="col s12 m6">
                     
                 </div>
+                <form method="POST" action="/upload" enctype="multipart/form-data">
+                  <input type="file" name="file">
+                  <input type="submit">
+              </form>
         </div>
 </div>
 <footer class="page-footer">
