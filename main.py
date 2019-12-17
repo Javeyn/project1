@@ -15,14 +15,14 @@
 # [START gae_python37_app]
 from config import Config
 from flask import Flask, render_template, flash, request
-from clarifai.rest import ClarifaiApp
+#from clarifai.rest import ClarifaiApp
 from flask_materialize import Material
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 import logging
 import os
-from google.cloud import storage
+#from google.cloud import storage
 import requests
 
 
@@ -31,7 +31,7 @@ import requests
 app = Flask(__name__)
 app.config.from_object(Config)
 Material(app)  
-clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
+#clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
 
 #Function for Clarifai
 class UrlForm(FlaskForm):
@@ -71,33 +71,33 @@ def index():
     # return render_template('index.html', form=form)
     return render_template('index copy.html')
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    """Process the uploaded file and upload it to Google Cloud Storage."""
-    uploaded_file = request.files.get('file')
+# @app.route('/upload', methods=['POST'])
+# def upload():
+#     """Process the uploaded file and upload it to Google Cloud Storage."""
+#     uploaded_file = request.files.get('file')
 
-    if not uploaded_file:
-        return 'No file uploaded.', 400
+#     if not uploaded_file:
+#         return 'No file uploaded.', 400
 
-    # Create a Cloud Storage client.
-    gcs = storage.Client()
+#     # Create a Cloud Storage client.
+#     gcs = storage.Client()
 
-    # Get the bucket that the file will be uploaded to.
-    bucket = gcs.get_bucket('foodie_helper_bucket_1')
-    #app.config['CLOUD_STORAGE_BUCKET']
-    # Create a new blob and upload the file's content.
-    blob = bucket.blob(uploaded_file.filename)
+#     # Get the bucket that the file will be uploaded to.
+#     bucket = gcs.get_bucket('foodie_helper_bucket_1')
+#     #app.config['CLOUD_STORAGE_BUCKET']
+#     # Create a new blob and upload the file's content.
+#     blob = bucket.blob(uploaded_file.filename)
 
-    blob.upload_from_string(
-        uploaded_file.read(),
-        content_type=uploaded_file.content_type
-    )
+#     blob.upload_from_string(
+#         uploaded_file.read(),
+#         content_type=uploaded_file.content_type
+#     )
 
-    # The public URL can be used to directly access the uploaded file via HTTP.
-    result = runImage(blob.public_url)
-    machineResult = getConcept(result)
-    return render_template('results.html', url=blob.public_url, machineResult=machineResult)
-    #return render_template('results.html', url="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg", machineResult="Pizza")
+#     # The public URL can be used to directly access the uploaded file via HTTP.
+#     result = runImage(blob.public_url)
+#     machineResult = getConcept(result)
+#     return render_template('results.html', url=blob.public_url, machineResult=machineResult)
+#     #return render_template('results.html', url="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg", machineResult="Pizza")
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
