@@ -1,4 +1,4 @@
-# # Ate-i
+# Ate-i
 
 ## A Machine Learning Project
 ### Created by Henry Lin, Paolo Torrado, and Jack Sorensen
