@@ -18,9 +18,10 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center green-text text-lighten-2">AteI</h1>
+        <h1 class="header center green-text text-lighten-2">Ate I</h1>
         <div class="row center">
           <h5 class="header col s12 light white-text">A Modern Nutrition Calculator</h5>
+          <h5 class="header col s12 light white-text">Snap and eat: Get accurate nutritional values with your own image</h5>
         </div>
         
         
@@ -35,7 +36,7 @@
     <div class="container">
         <div class="section">
             <div class="row center">
-                <img class="responsive-img" style="border: 2px solid black" src="{{ url }}" alt="User Picture of Delicious Food">
+                <img class="responsive-img" style="margin-bottom: 0px;" src="{{ url }}" alt="User Picture of Delicious Food">
             </div>
             <div class="row center">
                 <!-- <ul class="collection">
@@ -72,8 +73,14 @@
                     </li>                    
                 </ul> -->
                 <!-- Class to render buttons -->
-                <div class="buttons">
+                <div style="border: 2px solid black; box-shadow: 10px 10px rgb(76, 175, 80); margin-bottom: 20px; margin-top: 0px;">
+                    <h5>Please choose your food item to populate nutrition facts.</h5>
+                    <br>
+                    <div class="buttons" style="margin-bottom: 40px">
+                    </div>
+                    <h5 style="margin-bottom: 20px">If your food item is not listed please retake picture.</h5>
                 </div>
+                
                 <div class="card" style=" padding-top: 5px; border: 2px solid black;">
                     <div class="card-content" style="text-align: left; padding-top: 5px; margin: 0">
                         <div class="row" id="nutriFacts" style="margin: 0; padding: 0;">
@@ -247,19 +254,17 @@
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Learn more about the Developers</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">Henry Lin</a></li>
+            <li><a class="white-text" href="#!">Paolo Torrado</a></li>
+            <li><a class="white-text" href="#!">Jack Sorensen</a></li>
+            <!-- <li><a class="white-text" href="#!">Link 4</a></li> -->
           </ul>
         </div>
-        <div class="col l3 s12">
+        <!-- <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
@@ -267,15 +272,16 @@
             <li><a class="white-text" href="#!">Link 3</a></li>
             <li><a class="white-text" href="#!">Link 4</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">ATE i</a>
       </div>
     </div>
   </footer>
+
 
     {% block content %}
 
@@ -305,8 +311,9 @@
                 $(".buttons").empty();
                 for (var i = 0; i < foods.length; i++) {
                     var a = $("<a>");
-                    a.addClass("foodItem waves-effect waves-light btn-small");
+                    a.addClass("foodItem waves-effect waves-light btn-large green");
                     a.attr("data-name", foods[i]);
+                    a.attr("style", "margin: 0 10px");
                     a.text(foods[i]);
                     $(".buttons").append(a);
                 }
@@ -390,6 +397,19 @@
                 })
             }
             renderButtons();
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.fixed-action-btn');
+                var instances = M.FloatingActionButton.init(elems, {
+                toolbarEnabled: true
+                });
+            });
+
+            // Or with jQuery
+
+            $('.fixed-action-btn').floatingActionButton({
+                toolbarEnabled: true
+            });
         </script>
         {{ super() }}
     {% endblock scripts %}
