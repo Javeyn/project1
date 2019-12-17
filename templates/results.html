@@ -38,7 +38,7 @@
                 <img class="responsive-img" style="border: 2px solid black" src="{{ url }}" alt="User Picture of Delicious Food">
             </div>
             <div class="row center" id="buttons">
-                <ul class="collection">
+                <!-- <ul class="collection">
                     <li class="collection-item avatar">
                       <span class="title">{{ machineResult[0] }}</span>
                       <input type="number" id="myNumber1" value="1">
@@ -48,7 +48,7 @@
                         <li><a href="#!">three</a></li>
                       </ul>
                       <a class="btn dropdown-trigger green" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                      <a class="waves-effect waves-light btn-large green">Submit quantity to find total nutrients</a>
                     </li>                    
                     <li class="collection-item avatar">
                       <span class="title">{{ machineResult[1] }}</span>
@@ -70,50 +70,159 @@
                       <input type="number" id="myNumber4" value="1">
                       <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
                     </li>                    
-                </ul>
-                <!-- <div class="col s4">
-                    <h3 class="">{{ machineResult }}</h3>
+                </ul> -->
+                <div class="card" style=" padding-top: 5px; border: 2px solid black;">
+                    <div class="card-content" style="text-align: left; padding-top: 5px; margin: 0">
+                        <div class="row" id="nutriFacts" style="margin: 0; padding: 0;">
+                            <div class="col s12" style="padding: 0; margin: 0;">
+                                <h4 style="margin: 0; font-weight: bold;">Nutrition Facts</h4>
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;" id="serve">
+                            <div class="col s4" style="font-size: large; padding: 0; margin: 0;">
+                                Serving size
+                            </div>
+                            <div class="col s8" style="font-size: large; padding: 0; margin: 0; text-align: right;" id="servingSize">
+                                0
+                            </div>
+                        </div>
+                        <hr id="thick" style="padding: 0; margin: 0; height: 8px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" style="font-size: large; padding: 0; margin: 0;">
+                                Amount per serving
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s6" id="cal" style="font-size: large; padding: 0; margin: 0; font-size: x-large; font-weight: bold;">
+                                Calories
+                            </div>
+                            <div class="col s6" id="calories" style="font-size: large; padding: 0; margin: 0; font-size: x-large; font-weight: bold; text-align: right;">
+                            </div>
+                        </div>
+                        <hr id="under" style="padding: 0; margin: 0; height: 4px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="dailyValue" style="font-size: large; padding: 0; margin: 0; text-align: right; font-weight: bold;">
+                                % Daily Value*
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="fat" style="text-align: left; font-size: large; padding: 0; margin: 0;">
+                                Total Fat 0g
+                            </div>
+                            <div class="col s2" id="fatPercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="satFat" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Saturated Fat 0g
+                            </div>
+                            <div class="col s2" id="satFatPercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="transfat" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Trans Fat 0g
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="cholesterol" style="font-size: large; padding: 0; margin: 0;">
+                                Cholesterol 0mg
+                            </div>
+                            <div class="col s2" id="cholesterolpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="sodium" style="font-size: large; padding: 0; margin: 0;">
+                                Sodium 0mg
+                            </div>
+                            <div class="col s2" id="sodiumpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="carbs" style="font-size: large; padding: 0; margin: 0;">
+                                Total Carbohydrate 0g
+                            </div>
+                            <div class="col s2" id="carbspercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="fiber" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Dietary Fiber 0g
+                            </div>
+                            <div class="col s2" id="fiberpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="sugar" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Total Sugars 0g
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="protien" style="font-size: large; padding: 0; margin: 0;">
+                                Protein 0g
+                            </div>
+                        </div>
+                        <hr id="thick" style="padding: 0; height: 8px; color: black; background-color: black; border: none; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Vitamin A
+                            </div>
+                            <div class="col s2" id="vita" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Calcium
+                            </div>
+                            <div class="col s2" id="calcium" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Iron
+                            </div>
+                            <div class="col s2" id="iron" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Potassium
+                            </div>
+                            <div class="col s2" id="potassium" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr id="under" style="padding: 0; margin: 0; height: 4px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="advice" style="font-size: small;">
+                                *The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s4">
-                    <form>
-                        <input class="btn-large waves-effect waves-light green" type="text">
-                    </form>
-                </div>
-                <div class="col s4">
-                    <a class="waves-effect waves-light btn-small green">Button</a>
-                </div> -->
-
-                    <!-- <table class="col s12 m4 striped">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                        </tr>
-                        </thead>
-                
-                        <tbody>
-                        <tr>
-                            <td>{{ result }}</td>
-                            <form>
-                                <input class="btn-large waves-effect waves-light green lighten-1" type="text">
-                            </form>
-                            <a class="waves-effect waves-light btn-small">Button</a>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table> -->
-            </div>
+            </div>  
             <a class="waves-effect waves-light btn-large" href="{{ url_for('index') }}"><i class="material-icons right">cloud</i>Submit a different meal. Yum!</a>
         </div>
     </div>
