@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="nutritionfacts.css" rel="stylesheet">
 </head>
 
 <body>
-    <form>
+    <!-- <form>
         Enter food item:<br>
         <input id="foodName" type="text">
         <input id="submit" type="submit" value="Submit">
@@ -19,7 +21,186 @@
             <div class="fiber"></div>
         </div>
         </div>
-    </form>
+    </form> -->
+    <!-- Class to render buttons -->
+    <div class="buttons">
+    </div>
+
+    <!-- Nutrition Card -->
+    <div class="row">
+        <div class="col s12 m4" id="innercol">
+            <div class="card large">
+                <div class="card-content">
+                    <div class="row" id="nutriFacts">
+                        <div class="col s12">
+                            <h4>Nutrition Facts</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" id="serve">
+                        <div class="col s4">
+                            Serving size
+                        </div>
+                        <div class="col s8" id="servingSize">
+                            0
+                        </div>
+                    </div>
+                    <hr id="thick">
+                    <div class="row">
+                        <div class="col s12">
+                            Amount per serving
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6" id="cal">
+                            Calories
+                        </div>
+                        <div class="col s6" id="calories">
+
+                        </div>
+                    </div>
+                    <hr id="under">
+                    <div class="row">
+                        <div class="col s12" id="dailyValue">
+                            % Daily Value*
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="fat">
+                            Total Fat 0g
+                        </div>
+                        <div class="col s2" id="fatPercent">
+                            0%
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="satFat">
+                            Saturated Fat 0g
+                        </div>
+                        <div class="col s2" id="satFatPercent">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s12" id="transfat">
+                            Trans Fat 0g
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="cholesterol">
+                            Cholesterol 0mg
+                        </div>
+                        <div class="col s2" id="cholesterolpercent">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="sodium">
+                            Sodium 0mg
+                        </div>
+                        <div class="col s2" id="sodiumpercent">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="carbs">
+                            Total Carbohydrate 0g
+                        </div>
+                        <div class="col s2" id="carbspercent">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10" id="fiber">
+                            Dietary Fiber 0g
+                        </div>
+                        <div class="col s2" id="fiberpercent">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s12" id="sugar">
+                            Total Sugars 0g
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s12" id="protien">
+                            Protein 0g
+                        </div>
+                    </div>
+                    <hr id="thick">
+                    <div class="row">
+                        <div class="col s10">
+                            Vitamin A
+                        </div>
+                        <div class="col s2" id="vita">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10">
+                            Calcium
+                        </div>
+                        <div class="col s2" id="calcium">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10">
+                            Iron
+                        </div>
+                        <div class="col s2" id="iron">
+                            0%
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col s10">
+                            Potassium
+                        </div>
+                        <div class="col s2" id="potassium">
+                            0%
+                        </div>
+                    </div>
+                    <hr id="under">
+                    <div class="row">
+                        <div class="col s12" id="advice">
+                            *The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="nurtrition.js" rel="script"></script>
