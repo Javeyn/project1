@@ -14,7 +14,6 @@
 
 # [START gae_python37_app]
 from config import Config
-
 from flask import Flask, render_template, flash, request
 from clarifai.rest import ClarifaiApp
 from flask_materialize import Material
@@ -32,21 +31,27 @@ import requests
 app = Flask(__name__)
 app.config.from_object(Config)
 Material(app)  
-#clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
+clarifai = ClarifaiApp(api_key='46b5b39ef59b479b98c0c4b745c479e8')
 
 #Function for Clarifai
 class UrlForm(FlaskForm):
     url = StringField('url', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
-#def runImage (imageUrl):
-    #model = clarifai.public_models.food_model
-    #response = model.predict_by_url(url=imageUrl)
-    #return response
+def runImage (imageUrl):
+    model = clarifai.public_models.food_model
+    response = model.predict_by_url(url=imageUrl)
+    return response
 
-def getConcept(result_json, index):
-    """ Returns a given concept given an index"""
-    return  result_json['outputs'][0]["data"]['concepts'][index]['name']
+def getConcept(result_json):
+    """ Returns first five concepts given a json"""
+    answers = {}
+    answers[0] = result_json['outputs'][0]["data"]['concepts'][0]['name']
+    answers[1] = result_json['outputs'][0]["data"]['concepts'][1]['name']
+    answers[2] = result_json['outputs'][0]["data"]['concepts'][2]['name']
+    answers[3] = result_json['outputs'][0]["data"]['concepts'][3]['name']
+    answers[4] = result_json['outputs'][0]["data"]['concepts'][4]['name']
+    return answers
 
 #Functions for Nutritionix
 def getNutrition(searchTerm):
@@ -57,14 +62,14 @@ def getNutrition(searchTerm):
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    form = UrlForm()
+    #form = UrlForm()
     # if form.validate_on_submit():
     #     """flash('Image analysis requested')"""
     #     result = runImage(form.url.data)
     #     # result = getConcept(result, 0)
     #     return render_template('index.html', message=result)
     # return render_template('index.html', form=form)
-    return render_template('index.html', form = form)
+    return render_template('index copy.html')
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -89,7 +94,10 @@ def upload():
     )
 
     # The public URL can be used to directly access the uploaded file via HTTP.
-    return blob.public_url
+    result = runImage(blob.public_url)
+    machineResult = getConcept(result)
+    return render_template('results.html', url=blob.public_url, machineResult=machineResult)
+    #return render_template('results.html', url="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg", machineResult="Pizza")
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
