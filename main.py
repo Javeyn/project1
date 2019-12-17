@@ -96,8 +96,8 @@ def upload():
     # The public URL can be used to directly access the uploaded file via HTTP.
     result = runImage(blob.public_url)
     machineResult = getConcept(result)
-    #return render_template('results.html', url=blob.public_url, machineResult=machineResult)
-    return render_template('results.html', url="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg", machineResult="Pizza")
+    return render_template('results.html', url=blob.public_url, machineResult=machineResult)
+    #return render_template('results.html', url="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg", machineResult="Pizza")
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
