@@ -1,0 +1,191 @@
+{% extends "material/base.html" %}
+{% import "material/utils.html" as util %}
+{% import "material/wtf.html" as wtf %}
+
+
+{% block title %}ATE-eye{% endblock %}
+
+{% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+{{ super() }}
+{% endblock styles %}
+
+{% block body %}
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center green-text text-lighten-2">AteI</h1>
+        <div class="row center">
+          <h5 class="header col s12 light white-text">A Modern Nutrition Calculator</h5>
+        </div>
+        
+        
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='images/ver3.jpg') }}" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+    <div class="container">
+        <div class="section">
+            <div class="row center">
+                <img class="responsive-img" style="border: 2px solid black" src="{{ url }}" alt="User Picture of Delicious Food">
+            </div>
+            <div class="row center" id="buttons">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                      <span class="title">{{ machineResult[0] }}</span>
+                      <input type="number" id="myNumber1" value="1">
+                      <ul id="dropdown2" class="dropdown-content">
+                        <li><a href="#!">one<span class="badge">1</span></a></li>
+                        <li><a href="#!">two<span class="new badge">1</span></a></li>
+                        <li><a href="#!">three</a></li>
+                      </ul>
+                      <a class="btn dropdown-trigger green" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
+                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </li>                    
+                    <li class="collection-item avatar">
+                      <span class="title">{{ machineResult[1] }}</span>
+                      <input type="number" id="myNumber2" value="1">
+                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </li>                    
+                    <li class="collection-item avatar">
+                      <span class="title">{{ machineResult[2] }}</span>
+                      <input type="number" id="myNumber3" value="1">
+                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </li>                    
+                    <li class="collection-item avatar">
+                      <span class="title">{{ machineResult[3] }}</span>
+                      <input type="number" id="myNumber4" value="1">
+                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </li>                    
+                    <li class="collection-item avatar">
+                      <span class="title">{{ machineResult[4] }}</span>
+                      <input type="number" id="myNumber4" value="1">
+                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </li>                    
+                </ul>
+                <!-- <div class="col s4">
+                    <h3 class="">{{ machineResult }}</h3>
+                </div>
+                <div class="col s4">
+                    <form>
+                        <input class="btn-large waves-effect waves-light green" type="text">
+                    </form>
+                </div>
+                <div class="col s4">
+                    <a class="waves-effect waves-light btn-small green">Button</a>
+                </div> -->
+
+                    <!-- <table class="col s12 m4 striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                
+                        <tbody>
+                        <tr>
+                            <td>{{ result }}</td>
+                            <form>
+                                <input class="btn-large waves-effect waves-light green lighten-1" type="text">
+                            </form>
+                            <a class="waves-effect waves-light btn-small">Button</a>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table> -->
+            </div>
+            <a class="waves-effect waves-light btn-large" href="{{ url_for('index') }}"><i class="material-icons right">cloud</i>Submit a different meal. Yum!</a>
+        </div>
+    </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light white-text"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='images/ver4.jpg') }}" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer green">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+    {% block content %}
+
+    {% endblock content%}
+    {% block footer %}
+       
+    {% endblock footer %}
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="{{ url_for('static', filename='jsScripts/materialize.js') }}"></script>
+        <script src="{{ url_for('static', filename='jsScripts/init.js') }}"></script>
+        <script type="text/javascript"> 
+            $("#buttons").on("click", function(event) {
+                event.preventDefault();
+                console.log(event);
+            });
+            $("#rerun").on("click", function(event) {
+                event.preventDefault();
+                console.log(event);
+
+            });
+        </script>
+        {{ super() }}
+    {% endblock scripts %}
+{% endblock body%}
