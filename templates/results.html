@@ -18,9 +18,10 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center green-text text-lighten-2">AteI</h1>
+        <h1 class="header center green-text text-lighten-2">Ate I</h1>
         <div class="row center">
           <h5 class="header col s12 light white-text">A Modern Nutrition Calculator</h5>
+          <h5 class="header col s12 light white-text">Snap and eat: Get accurate nutritional values with your own image</h5>
         </div>
         
         
@@ -35,85 +36,203 @@
     <div class="container">
         <div class="section">
             <div class="row center">
-                <img class="responsive-img" style="border: 2px solid black" src="{{ url }}" alt="User Picture of Delicious Food">
+                <img class="responsive-img" style="margin-bottom: 0px;" src="{{ url }}" alt="User Picture of Delicious Food">
             </div>
-            <div class="row center" id="buttons">
-                <ul class="collection">
+            <div class="row center">
+                <!-- <ul class="collection">
                     <li class="collection-item avatar">
-                      <span class="title">{{ machineResult[0] }}</span>
-                      <input type="number" id="myNumber1" value="1">
-                      <ul id="dropdown2" class="dropdown-content">
+                    <span class="title">{{ machineResult[0] }}</span>
+                    <input type="number" id="myNumber1" value="1">
+                    <ul id="dropdown2" class="dropdown-content">
                         <li><a href="#!">one<span class="badge">1</span></a></li>
                         <li><a href="#!">two<span class="new badge">1</span></a></li>
                         <li><a href="#!">three</a></li>
-                      </ul>
-                      <a class="btn dropdown-trigger green" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    </ul>
+                    <a class="btn dropdown-trigger green" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
+                    <a class="waves-effect waves-light btn-large green">Submit quantity to find total nutrients</a>
                     </li>                    
                     <li class="collection-item avatar">
-                      <span class="title">{{ machineResult[1] }}</span>
-                      <input type="number" id="myNumber2" value="1">
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    <span class="title">{{ machineResult[1] }}</span>
+                    <input type="number" id="myNumber2" value="1">
+                    <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
                     </li>                    
                     <li class="collection-item avatar">
-                      <span class="title">{{ machineResult[2] }}</span>
-                      <input type="number" id="myNumber3" value="1">
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    <span class="title">{{ machineResult[2] }}</span>
+                    <input type="number" id="myNumber3" value="1">
+                    <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
                     </li>                    
                     <li class="collection-item avatar">
-                      <span class="title">{{ machineResult[3] }}</span>
-                      <input type="number" id="myNumber4" value="1">
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    <span class="title">{{ machineResult[3] }}</span>
+                    <input type="number" id="myNumber4" value="1">
+                    <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
                     </li>                    
                     <li class="collection-item avatar">
-                      <span class="title">{{ machineResult[4] }}</span>
-                      <input type="number" id="myNumber4" value="1">
-                      <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
+                    <span class="title">{{ machineResult[4] }}</span>
+                    <input type="number" id="myNumber4" value="1">
+                    <a class="waves-effect waves-light btn-small green">Submit quantity to find total nutrients</a>
                     </li>                    
-                </ul>
-                <!-- <div class="col s4">
-                    <h3 class="">{{ machineResult }}</h3>
+                </ul> -->
+                <!-- Class to render buttons -->
+                <div style="border: 2px solid black; box-shadow: 10px 10px rgb(76, 175, 80); margin-bottom: 20px; margin-top: 0px;">
+                    <h5>Please choose your food item to populate nutrition facts.</h5>
+                    <br>
+                    <div class="buttons" style="margin-bottom: 40px">
+                    </div>
+                    <h5 style="margin-bottom: 20px">If your food item is not listed please retake picture.</h5>
                 </div>
-                <div class="col s4">
-                    <form>
-                        <input class="btn-large waves-effect waves-light green" type="text">
-                    </form>
-                </div>
-                <div class="col s4">
-                    <a class="waves-effect waves-light btn-small green">Button</a>
-                </div> -->
-
-                    <!-- <table class="col s12 m4 striped">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                        </tr>
-                        </thead>
                 
-                        <tbody>
-                        <tr>
-                            <td>{{ result }}</td>
-                            <form>
-                                <input class="btn-large waves-effect waves-light green lighten-1" type="text">
-                            </form>
-                            <a class="waves-effect waves-light btn-small">Button</a>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table> -->
-            </div>
+                <div class="card" style=" padding-top: 5px; border: 2px solid black;">
+                    <div class="card-content" style="text-align: left; padding-top: 5px; margin: 0">
+                        <div class="row" id="nutriFacts" style="margin: 0; padding: 0;">
+                            <div class="col s12" style="padding: 0; margin: 0;">
+                                <h4 style="margin: 0; font-weight: bold;">Nutrition Facts</h4>
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;" id="serve">
+                            <div class="col s4" style="font-size: large; padding: 0; margin: 0;">
+                                Serving size
+                            </div>
+                            <div class="col s8" style="font-size: large; padding: 0; margin: 0; text-align: right;" id="servingSize">
+                                0
+                            </div>
+                        </div>
+                        <hr id="thick" style="padding: 0; margin: 0; height: 8px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" style="font-size: large; padding: 0; margin: 0;">
+                                Amount per serving
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s6" id="cal" style="font-size: large; padding: 0; margin: 0; font-size: x-large; font-weight: bold;">
+                                Calories
+                            </div>
+                            <div class="col s6" id="calories" style="font-size: large; padding: 0; margin: 0; font-size: x-large; font-weight: bold; text-align: right;">
+                            </div>
+                        </div>
+                        <hr id="under" style="padding: 0; margin: 0; height: 4px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="dailyValue" style="font-size: large; padding: 0; margin: 0; text-align: right; font-weight: bold;">
+                                % Daily Value*
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="fat" style="text-align: left; font-size: large; padding: 0; margin: 0;">
+                                Total Fat 0g
+                            </div>
+                            <div class="col s2" id="fatPercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="satFat" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Saturated Fat 0g
+                            </div>
+                            <div class="col s2" id="satFatPercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="transfat" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Trans Fat 0g
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="cholesterol" style="font-size: large; padding: 0; margin: 0;">
+                                Cholesterol 0mg
+                            </div>
+                            <div class="col s2" id="cholesterolpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="sodium" style="font-size: large; padding: 0; margin: 0;">
+                                Sodium 0mg
+                            </div>
+                            <div class="col s2" id="sodiumpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="carbs" style="font-size: large; padding: 0; margin: 0;">
+                                Total Carbohydrate 0g
+                            </div>
+                            <div class="col s2" id="carbspercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" id="fiber" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Dietary Fiber 0g
+                            </div>
+                            <div class="col s2" id="fiberpercent" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="sugar" style="font-size: large; padding: 0; margin: 0; text-indent: 15px;">
+                                Total Sugars 0g
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="protien" style="font-size: large; padding: 0; margin: 0;">
+                                Protein 0g
+                            </div>
+                        </div>
+                        <hr id="thick" style="padding: 0; height: 8px; color: black; background-color: black; border: none; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Vitamin A
+                            </div>
+                            <div class="col s2" id="vita" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Calcium
+                            </div>
+                            <div class="col s2" id="calcium" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Iron
+                            </div>
+                            <div class="col s2" id="iron" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr style="padding: 0; margin: 0;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s10" style="font-size: large; padding: 0; margin: 0;">
+                                Potassium
+                            </div>
+                            <div class="col s2" id="potassium" style="font-size: large; padding: 0; margin: 0;text-align: right">
+                                0%
+                            </div>
+                        </div>
+                        <hr id="under" style="padding: 0; margin: 0; height: 4px; color: black; background-color: black; border: none;">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col s12" id="advice" style="font-size: small;">
+                                *The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
             <a class="waves-effect waves-light btn-large" href="{{ url_for('index') }}"><i class="material-icons right">cloud</i>Submit a different meal. Yum!</a>
         </div>
     </div>
@@ -135,19 +254,17 @@
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Learn more about the Developers</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">Henry Lin</a></li>
+            <li><a class="white-text" href="#!">Paolo Torrado</a></li>
+            <li><a class="white-text" href="#!">Jack Sorensen</a></li>
+            <!-- <li><a class="white-text" href="#!">Link 4</a></li> -->
           </ul>
         </div>
-        <div class="col l3 s12">
+        <!-- <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
@@ -155,15 +272,16 @@
             <li><a class="white-text" href="#!">Link 3</a></li>
             <li><a class="white-text" href="#!">Link 4</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">ATE i</a>
       </div>
     </div>
   </footer>
+
 
     {% block content %}
 
@@ -176,14 +294,121 @@
         <script src="{{ url_for('static', filename='jsScripts/materialize.js') }}"></script>
         <script src="{{ url_for('static', filename='jsScripts/init.js') }}"></script>
         <script type="text/javascript"> 
-            $("#buttons").on("click", function(event) {
-                event.preventDefault();
-                console.log(event);
-            });
-            $("#rerun").on("click", function(event) {
-                event.preventDefault();
-                console.log(event);
+            // $("#buttons").on("click", function(event) {
+            //     event.preventDefault();
+            //     console.log(event);
+            // });
+            // $("#rerun").on("click", function(event) {
+            //     event.preventDefault();
+            //     console.log(event);
 
+            // });
+
+            // Array for the option of food
+            var foods = ['{{ machineResult[0] }}', '{{ machineResult[1] }}', '{{ machineResult[2] }}', '{{ machineResult[3] }}', '{{ machineResult[4] }}'];
+            //function to create buttons from the food items
+            function renderButtons() {
+                $(".buttons").empty();
+                for (var i = 0; i < foods.length; i++) {
+                    var a = $("<a>");
+                    a.addClass("foodItem waves-effect waves-light btn-large green");
+                    a.attr("data-name", foods[i]);
+                    a.attr("style", "margin: 0 10px");
+                    a.text(foods[i]);
+                    $(".buttons").append(a);
+                }
+            }
+            // Click function to render the nutrtition facts
+            $(document).on("click", ".foodItem", foodItem);
+            //function to obtain nutrition facts and append it on to the page
+            function foodItem() {
+                event.preventDefault();
+                var item = $(this).attr("data-name");
+                console.log(item)
+                var queryURL = "https://trackapi.nutritionix.com/v2/search/instant?query="
+                queryURL += item;
+                console.log(queryURL);
+                $.ajax({
+                    url: queryURL,
+                    method: "GET",
+                    headers: { "x-app-id": "651c4545", "x-app-key": "fdadf3d16015323a2a722196f4e33e2c" },
+                }).then(function(response) {
+                    console.log(response);
+                    console.log(response.common[0].food_name);
+                    return response.common[0].food_name;
+                }).then(function(foodName) {
+                    $.ajax({
+                        url: "https://trackapi.nutritionix.com/v2/natural/nutrients",
+                        method: "POST",
+                        data: {
+                            query: foodName
+                        },
+                        headers: {
+                            "x-app-id": "651c4545",
+                            "x-app-key": "fdadf3d16015323a2a722196f4e33e2c",
+                            "x-remote-user-id": "0"
+                        }
+                    }).then(function(response) {
+                        console.log(response);
+                        var calories = response.foods[0].nf_calories.toFixed(0);
+                        var fat = response.foods[0].nf_total_fat.toFixed(0);
+                        var calfat = (9 * response.foods[0].nf_total_fat).toFixed(0);
+                        var fatpercent = ((response.foods[0].nf_total_fat / 65) * 100).toFixed(0);
+                        var satfat = response.foods[0].nf_saturated_fat.toFixed(1);
+                        var transfat = response.foods[0].full_nutrients[53].value.toFixed(1);
+                        var cholesterol = response.foods[0].nf_cholesterol.toFixed(0);
+                        var cholesterolpercent = ((response.foods[0].nf_calories / 3000) * 100).toFixed(0);
+                        var sodium = response.foods[0].nf_sodium.toFixed(0);
+                        var sodiumpercent = ((response.foods[0].nf_sodium.toFixed(0) / 2400) * 100).toFixed(0);
+                        var totalcarbs = response.foods[0].nf_total_carbohydrate.toFixed(0)
+                        var carbpercent = ((response.foods[0].nf_total_carbohydrate / 300) * 100).toFixed(0);
+                        var fiber = response.foods[0].nf_dietary_fiber.toFixed(0);
+                        var fiberpercent = ((response.foods[0].nf_dietary_fiber / 25) * 100).toFixed(0);
+                        var sugar = response.foods[0].nf_sugars.toFixed(1);
+                        var protein = response.foods[0].nf_protein.toFixed(1);
+                        var potassium = ((response.foods[0].nf_potassium / 3500) * 100).toFixed(0);
+                        var vitd = response.foods[0].full_nutrients[35].value.toFixed(1);
+                        var vita = ((response.foods[0].full_nutrients[30].value / 5000) * 100).toFixed(1);
+                        var vitc = ((response.foods[0].full_nutrients[40].value / 60) * 100).toFixed(1);
+                        var calcium = ((response.foods[0].full_nutrients[19].value / 1300) * 100).toFixed(1);
+                        var iron = ((response.foods[0].full_nutrients[20].value / 18) * 100).toFixed(1);
+                        var serving = response.foods[0].serving_qty + " " + response.foods[0].serving_unit + " (" + response.foods[0].serving_weight_grams + "g)";
+                        $("#calories").text(calories);
+                        $("#servingSize").text(serving);
+                        $("#fat").text("Total Fat " + fat + "g");
+                        $("#fatPercent").text(fatpercent + "%");
+                        $("#satFat").text("Saturated Fat " + satfat + "g");
+                        $("#transfat").text("Trans Fat " + transfat + "g");
+                        $("#cholesterol").text("Cholesterol " + cholesterol + "mg");
+                        $("#cholesterolpercent").text(cholesterolpercent + "%");
+                        $("#sodium").text("Sodium " + sodium + "mg")
+                        $("#sodiumpercent").text(sodiumpercent + "%");
+                        $("#carbs").text("Total Carbohydrate " + totalcarbs + "g");
+                        $("#carbspercent").text(carbpercent + "%");
+                        $("#fiber").text("Dietary Fiber " + fiber + "g");
+                        $("#fiberpercent").text(fiberpercent + "%");
+                        $("#sugar").text("Total Sugars " + sugar + "g");
+                        $("#protien").text("Protein " + protein + "g")
+                        $("#vita").text(vita + "%");
+                        $("#calcium").text(calcium + "%");
+                        $("#potassium").text(potassium + "%");
+                        $("#iron").text(iron + "%");
+                    })
+                })
+            }
+            renderButtons();
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.fixed-action-btn');
+                var instances = M.FloatingActionButton.init(elems, {
+                toolbarEnabled: true
+                });
+            });
+
+            // Or with jQuery
+
+            $('.fixed-action-btn').floatingActionButton({
+                toolbarEnabled: true
             });
         </script>
         {{ super() }}
