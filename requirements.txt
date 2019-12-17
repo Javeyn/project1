@@ -1,0 +1,7 @@
+Flask==1.1.1
+Flask-WTF==0.14.2
+clarifai==2.6.2
+WTForms==2.2.1
+Flask-Materialize==0.2.4
+google-cloud-storage==1.19.1
+gunicorn==19.9.0

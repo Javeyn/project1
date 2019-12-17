@@ -1,0 +1,4 @@
+runtime: python37
+
+env_variables:
+    CLOUD_STORAGE_BUCKET: foodie_helper_bucket_1

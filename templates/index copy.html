@@ -1,0 +1,146 @@
+{% extends "material/base.html" %}
+{% import "material/utils.html" as util %}
+{% import "material/wtf.html" as wtf %}
+
+
+{% block title %}ATE-eye{% endblock %}
+
+{% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+{{ super() }}
+{% endblock styles %}
+
+{% block body %}
+<!-- <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> -->
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center green-text text-lighten-2">ATEi</h1>
+        <div class="row center">
+            <!-- <h5 class="header col s12 light white-text">A Modern Nutrition Calculator</h5> -->
+            <h4 class="header col s12 light white-text"><strong>Snap and eat: Get accurate nutritional values with your own image</strong></h4>
+        </div>
+        
+        
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='images/ver3.jpg') }}" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+        <div class="row center">
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <input class="btn-large waves-effect waves-light green lighten-1 pulse" type="file" name="file">
+                <input class="btn-large waves-effect waves-light green lighten-1" type="submit">
+            </form>  
+          <!-- <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a> -->
+        </div>
+      <!--   Icon Section   -->
+      <div class="row">
+                <div class="col s12 m4">
+                  <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Lightning Fast</h5>
+                    <p class="light">With a few taps on your mobile device or personal computer, you can get estimated nutritional information on any item that you can snap a picture of.</p>
+                  </div>
+                </div>
+                <div class="col s12 m4">
+                  <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+                    <p class="light">Ate-i is build to display accurate nutritional information clearly and in a recognizable format that most people are familiar with.</p>
+                  </div>
+                </div>
+                <div class="col s12 m4">
+                  <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Easy to Work With</h5>
+                    <p class="light"> Our application is designed with ease in mind. With just a few clicks or taps on your screen, you will be able to easily find nutritional facts.</p>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light white-text"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='images/ver4.jpg') }}" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer green">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Learn more about the Developers</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Henry Lin</a></li>
+            <li><a class="white-text" href="#!">Paolo Torrado</a></li>
+            <li><a class="white-text" href="#!">Jack Sorensen</a></li>
+            <!-- <li><a class="white-text" href="#!">Link 4</a></li> -->
+          </ul>
+        </div>
+        <!-- <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">ATE i</a>
+      </div>
+    </div>
+  </footer>
+
+
+    {% block content %}
+
+    {% endblock content%}
+    {% block footer %}
+       
+    {% endblock footer %}
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="{{ url_for('static', filename='jsScripts/materialize.js') }}"></script>
+        <script src="{{ url_for('static', filename='jsScripts/init.js') }}"></script>
+        <script type="text/javascript"> 
+
+        </script>
+        {{ super() }}
+    {% endblock scripts %}
+{% endblock body%}
