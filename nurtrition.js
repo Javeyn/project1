@@ -11,7 +11,7 @@
 
 
 // Array for the option of food
-var foods = ["Banana", "Apple", "Orange", "Peach"];
+var foods = ["Banana", "Apple", "Orange", "Peach", "cider"];
 
 //function to create buttons from the food items
 function renderButtons() {
@@ -54,7 +54,6 @@ function foodItem() {
         console.log(response.common[0].food_name);
         return response.common[0].food_name;
     }).then(function(foodName) {
-        console.log(foodName)
         $.ajax({
             url: "https://trackapi.nutritionix.com/v2/natural/nutrients",
             method: "POST",

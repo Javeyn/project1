@@ -11,172 +11,216 @@
 </head>
 
 <body>
-    <!-- <form>
-        Enter food item:<br>
-        <input id="foodName" type="text">
-        <input id="submit" type="submit" value="Submit">
-        <div class="nutritionFacts">
-            <div class="calories"></div>
-            <div class="cholestrol"></div>
-            <div class="fiber"></div>
-        </div>
-        </div>
-    </form> -->
     <!-- Class to render buttons -->
     <div class="buttons">
     </div>
 
     <!-- Nutrition Card -->
-    <div class="row">
-        <div class="col s12 m4" id="innercol">
-            <div class="card large">
-                <div class="card-content">
-                    <div class="row" id="nutriFacts">
-                        <div class="col s12">
-                            <h4>Nutrition Facts</h4>
+    <div class="row" style="margin: 0; padding: 0;">
+        <div class="col s12 m4" id="innercol" style="margin-top: 0; padding-top: 0;">
+            <div class="card large" style=" padding-top: 5px; border: 2px solid black;">
+                <div class="card-content" style="padding-top: 5px; margin: 0">
+                    <div class="row" id="nutriFacts" style="margin: 0; padding: 0;">
+                        <div class="col s12" style="padding: 0; margin: 0;">
+                            <h4 style="margin: 0; font-weight: bold;">
+                                Nutrition Facts
+                            </h4>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row" id="serve">
-                        <div class="col s4">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;" id="serve">
+                        <div class="col s4" style="font-size: small; padding: 0; margin: 0;">
                             Serving size
                         </div>
-                        <div class="col s8" id="servingSize">
+                        <div class="col s8" style="font-size: small; padding: 0; margin: 0; text-align: right;" id="servingSize">
                             0
                         </div>
                     </div>
-                    <hr id="thick">
-                    <div class="row">
-                        <div class="col s12">
+                    <hr id="thick" style="padding: 0; margin: 0; height: 8px; color: black; background-color: black; border: none;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s12" style="font-size: small; padding: 0; margin: 0;">
                             Amount per serving
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s6" id="cal">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s6" id="cal" style="font-size: small; padding: 0; margin: 0; font-size: x-large; font-weight: bold;">
                             Calories
                         </div>
-                        <div class="col s6" id="calories">
+                        <div class="col s6" id="calories" style="font-size: small; padding: 0; margin: 0; font-size: x-large; font-weight: bold; text-align: right;">
 
                         </div>
                     </div>
-                    <hr id="under">
-                    <div class="row">
-                        <div class="col s12" id="dailyValue">
+                    <hr id="under" style="padding: 0; margin: 0; height: 4px; color: black; background-color: black; border: none;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s12" id="dailyValue" style="font-size: small; padding: 0; margin: 0; text-align: right; font-weight: bold;">
                             % Daily Value*
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="fat">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s10" id="fat" style="font-size: small; padding: 0; margin: 0;">
                             Total Fat 0g
                         </div>
-                        <div class="col s2" id="fatPercent">
+                        <div class="col s2" id="fatPercent" style="font-size: small; padding: 0; margin: 0;">
                             0%
                         </div>
 
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="satFat">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s10" id="satFat" style="font-size: small; padding: 0; margin: 0; text-indent: 15px;">
                             Saturated Fat 0g
                         </div>
-                        <div class="col s2" id="satFatPercent">
+                        <div class="col s2" id="satFatPercent" style="font-size: small; padding: 0; margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s12" id="transfat">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s12" id="transfat" style="font-size: small; padding: 0; margin: 0; text-indent: 15px;">
                             Trans Fat 0g
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="cholesterol">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s10" id="cholesterol" style="font-size: small; padding: 0; margin: 0;">
                             Cholesterol 0mg
                         </div>
-                        <div class="col s2" id="cholesterolpercent">
+                        <div class="col s2" id="cholesterolpercent" style="font-size: small; padding: 0; margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="sodium">
+                    <hr style="padding: 0; margin: 0;">
+                    <div class="row" style="margin: 0; padding: 0;">
+                        <div class="col s10" id="sodium" style="font-size: small; padding: 0; margin: 0;">
                             Sodium 0mg
                         </div>
-                        <div class="col s2" id="sodiumpercent">
+                        <div class="col s2" id="sodiumpercent" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="carbs">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" id="carbs" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Total Carbohydrate 0g
                         </div>
-                        <div class="col s2" id="carbspercent">
+                        <div class="col s2" id="carbspercent" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10" id="fiber">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" id="fiber" style="font-size: small;
+                        padding: 0;
+                        margin: 0; text-indent: 15px;">
                             Dietary Fiber 0g
                         </div>
-                        <div class="col s2" id="fiberpercent">
+                        <div class="col s2" id="fiberpercent" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s12" id="sugar">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s12" id="sugar" style="font-size: small;
+                        padding: 0;
+                        margin: 0; text-indent: 15px;">
                             Total Sugars 0g
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s12" id="protien">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s12" id="protien" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Protein 0g
                         </div>
                     </div>
-                    <hr id="thick">
-                    <div class="row">
-                        <div class="col s10">
+                    <hr id="thick" style="padding: 0; height: 8px; color: black;
+                    background-color: black;
+                    border: none;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Vitamin A
                         </div>
-                        <div class="col s2" id="vita">
+                        <div class="col s2" id="vita" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Calcium
                         </div>
-                        <div class="col s2" id="calcium">
+                        <div class="col s2" id="calcium" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Iron
                         </div>
-                        <div class="col s2" id="iron">
+                        <div class="col s2" id="iron" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col s10">
+                    <hr style="padding: 0;
+                    margin: 0;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s10" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             Potassium
                         </div>
-                        <div class="col s2" id="potassium">
+                        <div class="col s2" id="potassium" style="font-size: small;
+                        padding: 0;
+                        margin: 0;">
                             0%
                         </div>
                     </div>
-                    <hr id="under">
-                    <div class="row">
-                        <div class="col s12" id="advice">
+                    <hr id="under" style="padding: 0;
+                    margin: 0; height: 4px;
+            color: black;
+            background-color: black;
+            border: none;">
+                    <div class="row" style="margin: 0;
+                    padding: 0;">
+                        <div class="col s12" id="advice" style="font-size: xx-small;">
                             *The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
 
                         </div>
